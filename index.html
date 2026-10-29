@@ -16,95 +16,133 @@
   --ink-soft:#4A5263;
   --line:#D9DCD5;
   --tape:#E6CF7E;
-  --wall:#E9E4D8;
   --accent:#2F5D50;
+  --paint:#E9E4D8;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:"Archivo",system-ui,sans-serif;font-variation-settings:"wdth" 100;color:var(--ink);background:var(--plaster);line-height:1.55;font-size:17px}
+body{font-family:"Archivo",system-ui,sans-serif;color:var(--ink);background:var(--plaster);line-height:1.55;font-size:17px}
 a{color:inherit}
-img{max-width:100%;display:block}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.cond{font-variation-settings:"wdth" 72}
 
-/* Draft banner */
 .draft{background:var(--ink);color:#fff;font-size:14px;text-align:center;padding:9px 16px}
 .draft a{color:var(--tape)}
 
-/* Header */
-header{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
-.logo{font-weight:800;font-variation-settings:"wdth" 75;font-size:20px;letter-spacing:.01em;text-decoration:none}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:16px}
+.logo{font-weight:800;font-variation-settings:"wdth" 75;font-size:20px;text-decoration:none;line-height:1.15}
 .logo small{display:block;font-weight:500;font-size:13px;color:var(--ink-soft);font-variation-settings:"wdth" 100}
-.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;padding:13px 22px;border-radius:999px;border:0;font:inherit;font-weight:700;cursor:pointer}
+nav{display:flex;gap:22px;font-size:15px}
+nav a{text-decoration:none}
+nav a:hover{text-decoration:underline}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;text-decoration:none;padding:13px 22px;border-radius:999px;border:0;font:inherit;font-weight:700;cursor:pointer}
+.btn:hover{background:#244a40}
 .btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn svg{width:18px;height:18px}
 
-/* Hero: the wall */
-.hero{position:relative;padding:28px 0 56px}
-.wall{position:relative;background:var(--wall);border-radius:6px;min-height:440px;padding:56px 44px 40px;overflow:hidden;transition:background-color .6s ease}
-.wall::before{content:"";position:absolute;inset:0;background:var(--plaster);transform-origin:left;animation:roll 1.4s cubic-bezier(.6,.1,.2,1) .2s forwards}
-@keyframes roll{to{transform:scaleX(0)}}
-.wall>*{position:relative}
-.tape{display:inline-block;background:var(--tape);padding:6px 14px;transform:rotate(-1.5deg);font-weight:600;font-size:15px;margin-bottom:22px;box-shadow:0 1px 0 rgba(0,0,0,.08)}
-h1{font-weight:800;font-variation-settings:"wdth" 70;font-size:clamp(46px,8.4vw,104px);line-height:.92;letter-spacing:-.01em;max-width:10ch}
-.lead{max-width:46ch;margin-top:22px;font-size:19px;color:var(--ink)}
-.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.swatches{margin-top:40px}
-.swatches p{font-size:14px;color:var(--ink-soft);margin-bottom:10px}
-.chips{display:flex;gap:10px;flex-wrap:wrap}
-.chip{border:0;cursor:pointer;width:118px;background:#fff;padding:6px 6px 10px;border-radius:4px;text-align:left;font:inherit;font-size:13px;box-shadow:0 1px 3px rgba(29,36,51,.12)}
-.chip span{display:block;height:46px;border-radius:2px;margin-bottom:7px}
-.chip[aria-pressed="true"]{outline:2px solid var(--ink);outline-offset:2px}
-.rating{position:absolute;right:36px;bottom:36px;background:#fff;border-radius:6px;padding:14px 18px;text-align:right;box-shadow:0 2px 10px rgba(29,36,51,.12)}
-.rating b{font-size:34px;font-variation-settings:"wdth" 70;line-height:1}
-.rating div{font-size:14px;color:var(--ink-soft)}
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr 1.1fr;gap:44px;align-items:center;padding:26px 0 70px}
+.tape{display:inline-block;background:var(--tape);padding:6px 14px;transform:rotate(-1.5deg);font-weight:600;font-size:15px;margin-bottom:20px}
+h1{font-weight:800;font-variation-settings:"wdth" 68;font-size:clamp(48px,6.6vw,88px);line-height:.9;letter-spacing:-.01em}
+.lead{max-width:44ch;margin-top:20px;font-size:19px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.proof{display:flex;align-items:center;gap:14px;margin-top:28px;font-size:15px;color:var(--ink-soft)}
+.stars{color:#C99A1E;font-size:19px;letter-spacing:2px}
+.proof b{color:var(--ink);font-size:22px;font-variation-settings:"wdth" 75}
 
-/* Sections */
-section{padding:64px 0;border-top:1px solid var(--line)}
-h2{font-weight:800;font-variation-settings:"wdth" 75;font-size:clamp(30px,4.5vw,46px);line-height:1.02;margin-bottom:28px;max-width:20ch}
-.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:36px 40px}
-.services h3{font-size:20px;margin-bottom:6px}
-.services p{color:var(--ink-soft)}
-.todo{background:#FFF3C4;padding:0 4px;border-radius:2px;font-size:.92em}
+.room-card{background:#fff;border-radius:10px;padding:14px;box-shadow:0 18px 40px -18px rgba(29,36,51,.35)}
+.room{display:block;width:100%;height:auto;border-radius:6px}
+.picker{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 4px 4px;flex-wrap:wrap}
+.picker p{font-size:14px;color:var(--ink-soft)}
+.picker p b{color:var(--ink)}
+.chips{display:flex;gap:8px}
+.chip{width:38px;height:38px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px var(--line);cursor:pointer}
+.chip[aria-pressed="true"]{box-shadow:0 0 0 2px var(--ink)}
+
+/* SECTIONS */
+section{padding:72px 0;border-top:1px solid var(--line)}
+h2{font-weight:800;font-variation-settings:"wdth" 74;font-size:clamp(32px,4.6vw,50px);line-height:1;margin-bottom:14px;max-width:18ch}
+.intro{color:var(--ink-soft);max-width:56ch;margin-bottom:34px}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0;border-top:2px solid var(--ink)}
+.svc{padding:24px 24px 26px 0;border-bottom:1px solid var(--line)}
+.svc h3{font-size:21px;font-variation-settings:"wdth" 85;margin-bottom:6px}
+.svc p{color:var(--ink-soft)}
+.svc .swatch{display:block;width:44px;height:10px;border-radius:2px;margin-bottom:14px}
+.todo{background:#FFF3C4;padding:0 5px;border-radius:2px;font-size:.88em;font-weight:500}
+
+/* Before / after */
+.ba-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:44px;align-items:center}
+.ba{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:4/3;background:#ddd;user-select:none}
+.ba svg{position:absolute;inset:0;width:100%;height:100%}
+.ba .after{clip-path:inset(0 0 0 var(--x,50%))}
+.ba .handle{position:absolute;top:0;bottom:0;left:var(--x,50%);width:3px;background:#fff;transform:translateX(-1px);pointer-events:none;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.ba .handle::after{content:"↔";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;font-weight:800;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize}
+.ba .tag{position:absolute;top:12px;padding:4px 10px;background:rgba(29,36,51,.85);color:#fff;font-size:13px;border-radius:3px}
+.ba .tag.l{left:12px}.ba .tag.r{right:12px}
+.cap{font-size:13px;color:var(--ink-soft);margin-top:10px}
 
 .steps{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;counter-reset:s}
 .steps li{counter-increment:s;padding-top:14px;border-top:3px solid var(--ink)}
-.steps li::before{content:counter(s);font-weight:800;font-variation-settings:"wdth" 70;font-size:44px;line-height:1;display:block;margin-bottom:8px;color:var(--accent)}
+.steps li::before{content:counter(s);font-weight:800;font-variation-settings:"wdth" 65;font-size:52px;line-height:1;display:block;margin-bottom:8px;color:var(--accent)}
 .steps strong{display:block;font-size:19px;margin-bottom:4px}
 .steps span{color:var(--ink-soft)}
 
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.ph{aspect-ratio:4/3;border-radius:4px;display:flex;align-items:flex-end;padding:12px;font-size:14px;color:var(--ink);background:repeating-linear-gradient(135deg,#ECEDE8 0 14px,#E3E5DE 14px 28px)}
-.ph b{background:#fff;padding:3px 8px;border-radius:3px;font-weight:600}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.ph{aspect-ratio:1;border:2px dashed #C6CAC1;border-radius:6px;display:grid;place-items:center;text-align:center;padding:12px;font-size:14px;color:var(--ink-soft)}
 
-.reviews{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:40px;align-items:start}
-.big{font-weight:800;font-variation-settings:"wdth" 65;font-size:clamp(80px,14vw,150px);line-height:.85;margin-bottom:18px}
-.reviews ul{list-style:none;display:grid;gap:12px}
-.reviews li{padding:14px 0;border-bottom:1px solid var(--line)}
+.reviews{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:44px;align-items:start}
+.big{font-weight:800;font-variation-settings:"wdth" 62;font-size:clamp(96px,15vw,170px);line-height:.82;margin-bottom:30px}
+.themes{list-style:none;display:grid;gap:0;border-top:2px solid var(--ink)}
+.themes li{padding:16px 0;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:baseline}
+.themes li b{font-variation-settings:"wdth" 80;font-size:19px;min-width:9ch}
+.themes li span{color:var(--ink-soft)}
 
-.zone{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-.zone span{border:1px solid var(--ink);border-radius:999px;padding:5px 13px;font-size:15px}
+/* Quote builder */
+.quote{display:grid;grid-template-columns:1fr 1.1fr;gap:44px;align-items:start}
+form{background:#fff;border-radius:10px;padding:28px;box-shadow:0 18px 40px -22px rgba(29,36,51,.35);display:grid;gap:20px}
+fieldset{border:0;display:grid;gap:10px}
+legend{font-weight:700;margin-bottom:8px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{cursor:pointer}
+.opts input{position:absolute;opacity:0}
+.opts span{display:inline-block;padding:9px 15px;border-radius:999px;border:1.5px solid var(--line);font-size:15px}
+.opts input:checked+span{background:var(--ink);border-color:var(--ink);color:#fff}
+.opts input:focus-visible+span{outline:3px solid var(--accent);outline-offset:2px}
+.stepper{display:flex;align-items:center;gap:14px}
+.stepper button{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--ink);background:#fff;font-size:22px;cursor:pointer}
+.stepper output{font-weight:800;font-size:28px;font-variation-settings:"wdth" 70;min-width:2ch;text-align:center}
+input[type=text]{font:inherit;padding:11px 14px;border:1.5px solid var(--line);border-radius:8px;width:100%}
+.preview{background:#E7F3EC;border-radius:8px;padding:14px 16px;font-size:15px;white-space:pre-line;border-left:4px solid #25D366}
+.hint{font-size:14px;color:var(--ink-soft)}
 
-.contact{background:var(--ink);color:#fff;border-radius:6px;padding:48px 40px;display:grid;grid-template-columns:1.2fr 1fr;gap:36px}
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:0;border-radius:10px;overflow:hidden;background:var(--ink);color:#fff}
+.contact .info{padding:40px 36px;display:grid;gap:20px;align-content:start}
 .contact h2{color:#fff}
-.contact dl{display:grid;gap:14px}
 .contact dt{font-size:14px;color:#B9C0CF}
 .contact dd{font-size:18px}
-.contact .btn{background:var(--tape);color:var(--ink)}
+.contact iframe{width:100%;height:100%;min-height:360px;border:0;display:block;filter:grayscale(.35)}
+.zone{display:flex;flex-wrap:wrap;gap:8px}
+.zone span{border:1px solid #6B7488;border-radius:999px;padding:4px 12px;font-size:14px}
 footer{padding:36px 0 48px;font-size:14px;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
-@media (max-width:760px){
-  .wall{padding:40px 22px 30px;min-height:0}
-  .rating{position:static;display:inline-block;margin-top:28px;text-align:left}
-  .reviews,.contact{grid-template-columns:1fr}
-  .contact{padding:36px 22px}
-  .chip{width:calc(50% - 5px)}
-  .gallery{grid-template-columns:1fr 1fr}
+.wa-float{position:fixed;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 20px rgba(0,0,0,.25);z-index:5}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+
+@media (max-width:900px){
+  .hero,.ba-grid,.reviews,.quote,.contact{grid-template-columns:1fr}
+  nav{display:none}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .contact iframe{min-height:280px}
+}
+@media (max-width:520px){
   header .btn{display:none}
+  .contact .info{padding:32px 22px}
+  form{padding:22px}
 }
-@media (prefers-reduced-motion:reduce){
-  .wall::before{animation:none;transform:scaleX(0)}
-  .wall{transition:none}
-}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
@@ -114,31 +152,92 @@ footer{padding:36px 0 48px;font-size:14px;color:var(--ink-soft);display:flex;jus
 <div class="wrap">
   <header>
     <a class="logo" href="#">Pitturazione d'interni Buonsante<small>Vittorio e Cristian · Modugno</small></a>
-    <a class="btn" href="https://wa.me/393276804690">Scrivici su WhatsApp</a>
+    <nav aria-label="Menu">
+      <a href="#servizi">Servizi</a><a href="#muffa">Muffa</a><a href="#recensioni">Recensioni</a><a href="#preventivo">Preventivo</a>
+    </nav>
+    <a class="btn" href="#preventivo">Chiedi un preventivo</a>
   </header>
 
   <div class="hero">
-    <div class="wall" id="wall">
+    <div>
       <div class="tape">Imbianchini a Modugno, Bari e provincia</div>
       <h1>Pareti nuove, casa pulita.</h1>
       <p class="lead">Tinteggiamo appartamenti, garage e locali. Proteggiamo mobili e pavimenti e lasciamo la casa in ordine. Per il preventivo basta un video delle stanze su WhatsApp.</p>
       <div class="hero-cta">
-        <a class="btn" href="https://wa.me/393276804690?text=Ciao%20Vittorio%2C%20vorrei%20un%20preventivo%20per%20tinteggiare">Chiedi un preventivo</a>
+        <a class="btn" href="#preventivo">Chiedi un preventivo</a>
         <a class="btn ghost" href="tel:+393276804690">Chiama 327 680 4690</a>
       </div>
-      <div class="swatches">
-        <p>Prova un colore su questa parete</p>
-        <div class="chips" role="group" aria-label="Colori di prova">
-          <button class="chip" data-c="#E9E4D8" aria-pressed="true"><span style="background:#E9E4D8"></span>Bianco caldo</button>
-          <button class="chip" data-c="#D7DED6" aria-pressed="false"><span style="background:#D7DED6"></span>Salvia chiaro</button>
-          <button class="chip" data-c="#D9DEE6" aria-pressed="false"><span style="background:#D9DEE6"></span>Grigio cielo</button>
-          <button class="chip" data-c="#E8D6C6" aria-pressed="false"><span style="background:#E8D6C6"></span>Rosa sabbia</button>
-          <button class="chip" data-c="#C9D3CB" aria-pressed="false"><span style="background:#C9D3CB"></span>Verde ulivo</button>
-        </div>
+      <div class="proof">
+        <b>5,0</b><span class="stars" aria-hidden="true">★★★★★</span><span>58 recensioni su Google</span>
       </div>
-      <div class="rating" aria-label="Valutazione Google 5 su 5, 58 recensioni">
-        <b>5,0</b>
-        <div>58 recensioni su Google</div>
+    </div>
+
+    <div class="room-card">
+      <svg class="room" viewBox="0 0 600 430" role="img" aria-label="Soggiorno con la parete del colore scelto">
+        <defs>
+          <linearGradient id="light" x1="0" y1="0" x2="1" y2="0.3">
+            <stop offset="0" stop-color="#fff" stop-opacity=".38"/>
+            <stop offset=".55" stop-color="#fff" stop-opacity="0"/>
+            <stop offset="1" stop-color="#000" stop-opacity=".10"/>
+          </linearGradient>
+          <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#C79B6D"/><stop offset="1" stop-color="#A87A4F"/>
+          </linearGradient>
+          <clipPath id="wallclip"><rect x="0" y="0" width="600" height="320"/></clipPath>
+        </defs>
+        <g clip-path="url(#wallclip)">
+          <rect id="wallBase" x="0" y="0" width="600" height="320" fill="#E9E4D8"/>
+          <rect id="wallSweep" x="0" y="0" width="600" height="320" fill="#E9E4D8" style="transform-origin:0 0;transform:scaleX(0)"/>
+        </g>
+        <rect x="0" y="0" width="600" height="320" fill="url(#light)"/>
+        <!-- window -->
+        <rect x="58" y="48" width="150" height="190" rx="3" fill="#F7FAFC" stroke="#fff" stroke-width="10"/>
+        <rect x="63" y="53" width="140" height="180" fill="#CFE3EE"/>
+        <path d="M63 175 Q110 150 150 168 T203 160 V233 H63Z" fill="#B7D3C2"/>
+        <line x1="133" y1="48" x2="133" y2="238" stroke="#fff" stroke-width="6"/>
+        <line x1="58" y1="143" x2="208" y2="143" stroke="#fff" stroke-width="6"/>
+        <!-- picture -->
+        <rect x="312" y="70" width="120" height="86" fill="#fff"/>
+        <rect x="320" y="78" width="104" height="70" fill="#2F5D50"/>
+        <circle cx="398" cy="98" r="12" fill="#E6CF7E"/>
+        <path d="M320 148 L356 112 L380 132 L400 118 L424 140 V148Z" fill="#1D2433" opacity=".55"/>
+        <!-- lamp -->
+        <line x1="520" y1="0" x2="520" y2="70" stroke="#1D2433" stroke-width="2"/>
+        <path d="M496 70 H544 L534 98 H506Z" fill="#1D2433"/>
+        <!-- skirting + floor -->
+        <rect x="0" y="312" width="600" height="10" fill="#fff"/>
+        <rect x="0" y="322" width="600" height="108" fill="url(#floor)"/>
+        <g stroke="#946840" stroke-width="1.4" opacity=".55">
+          <line x1="0" y1="350" x2="600" y2="350"/><line x1="0" y1="382" x2="600" y2="382"/><line x1="0" y1="414" x2="600" y2="414"/>
+          <line x1="120" y1="322" x2="120" y2="350"/><line x1="340" y1="322" x2="340" y2="350"/><line x1="230" y1="350" x2="230" y2="382"/><line x1="480" y1="350" x2="480" y2="382"/><line x1="70" y1="382" x2="70" y2="414"/><line x1="400" y1="382" x2="400" y2="414"/>
+        </g>
+        <!-- sofa -->
+        <ellipse cx="370" cy="352" rx="190" ry="12" fill="#000" opacity=".12"/>
+        <rect x="200" y="238" width="340" height="62" rx="16" fill="#3B4A63"/>
+        <rect x="190" y="282" width="360" height="58" rx="14" fill="#2C384D"/>
+        <rect x="180" y="262" width="44" height="80" rx="14" fill="#3B4A63"/>
+        <rect x="516" y="262" width="44" height="80" rx="14" fill="#3B4A63"/>
+        <rect x="240" y="252" width="70" height="44" rx="10" fill="#E6CF7E"/>
+        <rect x="430" y="252" width="70" height="44" rx="10" fill="#D7DED6"/>
+        <rect x="200" y="340" width="8" height="12" fill="#1D2433"/><rect x="532" y="340" width="8" height="12" fill="#1D2433"/>
+        <!-- plant -->
+        <path d="M100 330 h42 l-6 36 h-30z" fill="#E8E2D6"/>
+        <g fill="#2F5D50"><ellipse cx="108" cy="300" rx="10" ry="30" transform="rotate(-24 108 300)"/><ellipse cx="124" cy="290" rx="10" ry="36"/><ellipse cx="140" cy="302" rx="10" ry="28" transform="rotate(26 140 302)"/></g>
+        <!-- roller -->
+        <g id="roller" style="opacity:0">
+          <rect x="-14" y="80" width="28" height="150" rx="10" fill="#fff" stroke="#1D2433" stroke-width="2"/>
+          <path d="M0 230 V262 H-22 V330" fill="none" stroke="#1D2433" stroke-width="5" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <div class="picker">
+        <p>Prova un colore: <b id="colorName">Bianco caldo</b></p>
+        <div class="chips" role="group" aria-label="Colori di prova">
+          <button class="chip" style="background:#E9E4D8" data-c="#E9E4D8" data-n="Bianco caldo" aria-pressed="true" aria-label="Bianco caldo"></button>
+          <button class="chip" style="background:#C9D6C8" data-c="#C9D6C8" data-n="Salvia" aria-pressed="false" aria-label="Salvia"></button>
+          <button class="chip" style="background:#C8D3E0" data-c="#C8D3E0" data-n="Grigio cielo" aria-pressed="false" aria-label="Grigio cielo"></button>
+          <button class="chip" style="background:#E6C9B4" data-c="#E6C9B4" data-n="Terra di Puglia" aria-pressed="false" aria-label="Terra di Puglia"></button>
+          <button class="chip" style="background:#8FA79A" data-c="#8FA79A" data-n="Verde ulivo" aria-pressed="false" aria-label="Verde ulivo"></button>
+        </div>
       </div>
     </div>
   </div>
@@ -147,11 +246,49 @@ footer{padding:36px 0 48px;font-size:14px;color:var(--ink-soft);display:flex;jus
 <section id="servizi">
   <div class="wrap">
     <h2>Cosa facciamo</h2>
+    <p class="intro">Lavoriamo noi due, sempre gli stessi, dall'inizio alla fine del lavoro.</p>
     <div class="services">
-      <div><h3>Tinteggiatura di appartamenti</h3><p>Stanze, corridoi, soffitti. Copriamo mobili e pavimenti, anche il parquet, e puliamo tutto prima di andare via.</p></div>
-      <div><h3>Muffa e condensa</h3><p>Troviamo la causa, trattiamo le pareti e usiamo pitture antimuffa, senza rovinare le pareti che restano.</p></div>
-      <div><h3>Garage, scale e locali</h3><p>Garage, androni e negozi, con lavori programmati per non fermare la vostra attività.</p></div>
-      <div><h3>Altri servizi <span class="todo">da confermare</span></h3><p>Cartongesso, carta da parati, stucco veneziano, pittura decorativa. Aggiungiamo solo quello che fate davvero.</p></div>
+      <div class="svc"><i class="swatch" style="background:#E9E4D8"></i><h3>Tinteggiatura di appartamenti</h3><p>Stanze, corridoi, soffitti. Copriamo mobili e pavimenti, anche il parquet, e puliamo tutto prima di andare via.</p></div>
+      <div class="svc"><i class="swatch" style="background:#8FA79A"></i><h3>Muffa e condensa</h3><p>Troviamo la causa, trattiamo le pareti e usiamo pitture antimuffa, senza rovinare il resto della stanza.</p></div>
+      <div class="svc"><i class="swatch" style="background:#C8D3E0"></i><h3>Garage, scale e locali</h3><p>Garage, androni e negozi, con lavori programmati per non fermare la vostra attività.</p></div>
+      <div class="svc"><i class="swatch" style="background:#E6CF7E"></i><h3>Altri servizi <span class="todo">da confermare</span></h3><p>Cartongesso, carta da parati, stucco veneziano, pittura decorativa. Mettiamo solo quello che fate davvero.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="muffa">
+  <div class="wrap ba-grid">
+    <div>
+      <div class="ba" id="ba" style="--x:50%">
+        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="400" height="300" fill="#DCD8CE"/>
+          <rect y="250" width="400" height="50" fill="#B98E62"/>
+          <rect y="244" width="400" height="8" fill="#EEE"/>
+          <g fill="#4E5446" opacity=".55">
+            <ellipse cx="30" cy="40" rx="70" ry="38"/><ellipse cx="80" cy="20" rx="60" ry="22"/><ellipse cx="18" cy="120" rx="34" ry="60"/>
+            <circle cx="120" cy="58" r="10"/><circle cx="140" cy="36" r="6"/><circle cx="60" cy="90" r="9"/><circle cx="95" cy="70" r="5"/>
+          </g>
+          <g fill="#3A3F35" opacity=".45">
+            <circle cx="40" cy="60" r="14"/><circle cx="20" cy="86" r="9"/><circle cx="72" cy="40" r="11"/><circle cx="160" cy="24" r="4"/>
+            <circle cx="300" cy="230" r="7"/><circle cx="330" cy="236" r="4"/><ellipse cx="380" cy="240" rx="40" ry="16"/>
+          </g>
+          <path d="M0 0 H400" stroke="#C9C3B5" stroke-width="10"/>
+        </svg>
+        <svg class="after" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="400" height="300" fill="#EEEAE1"/>
+          <rect y="250" width="400" height="50" fill="#B98E62"/>
+          <rect y="244" width="400" height="8" fill="#fff"/>
+        </svg>
+        <span class="tag l">Prima</span><span class="tag r">Dopo</span>
+        <div class="handle"></div>
+        <input type="range" min="0" max="100" value="50" aria-label="Confronta prima e dopo">
+      </div>
+      <p class="cap">Illustrazione. Qui mettiamo le vostre foto prima e dopo.</p>
+    </div>
+    <div>
+      <h2>La muffa torna? Partiamo dalla causa.</h2>
+      <p class="intro" style="margin-bottom:18px">Ripassare la pittura sopra la muffa non basta: dopo qualche mese ricompare. Prima capiamo da dove arriva l'umidità, poi trattiamo la parete e usiamo pitture antimuffa e anticondensa.</p>
+      <a class="btn" href="#preventivo">Mandaci una foto della parete</a>
     </div>
   </div>
 </section>
@@ -159,10 +296,11 @@ footer{padding:36px 0 48px;font-size:14px;color:var(--ink-soft);display:flex;jus
 <section id="come">
   <div class="wrap">
     <h2>Come lavoriamo</h2>
+    <p class="intro">Dal primo messaggio alla casa pulita, senza sorprese.</p>
     <ol class="steps">
       <li><strong>Ci mandi un video</strong><span>Riprendi le stanze con il telefono e mandalo su WhatsApp. Se serve, veniamo a vedere.</span></li>
       <li><strong>Ricevi il preventivo</strong><span>Chiaro, con materiali e tempi. Nessuna sorpresa a fine lavoro.</span></li>
-      <li><strong>Lavoriamo noi due</strong><span>Vittorio e Cristian, sempre gli stessi, puntuali nei giorni concordati.</span></li>
+      <li><strong>Lavoriamo noi due</strong><span>Vittorio e Cristian, puntuali nei giorni concordati.</span></li>
       <li><strong>Casa pulita</strong><span>Togliamo le protezioni, puliamo e ti riconsegniamo la casa pronta.</span></li>
     </ol>
   </div>
@@ -171,11 +309,9 @@ footer{padding:36px 0 48px;font-size:14px;color:var(--ink-soft);display:flex;jus
 <section id="lavori">
   <div class="wrap">
     <h2>Alcuni lavori</h2>
+    <p class="intro">Le foto dei vostri lavori, prima e dopo. <span class="todo">da inserire</span></p>
     <div class="gallery">
-      <div class="ph"><b>Foto prima / dopo</b></div>
-      <div class="ph"><b>Soggiorno</b></div>
-      <div class="ph"><b>Trattamento muffa</b></div>
-      <div class="ph"><b>Garage</b></div>
+      <div class="ph">Foto soggiorno</div><div class="ph">Foto camera</div><div class="ph">Muffa: prima e dopo</div><div class="ph">Garage</div>
     </div>
   </div>
 </section>
@@ -184,42 +320,76 @@ footer{padding:36px 0 48px;font-size:14px;color:var(--ink-soft);display:flex;jus
   <div class="wrap reviews">
     <div>
       <div class="big">5,0</div>
-      <p>58 recensioni su Google</p>
+      <p><span class="stars" aria-hidden="true">★★★★★</span> 58 recensioni su Google</p>
       <p style="margin-top:16px"><a href="https://www.google.com/maps/search/?api=1&query=Pitturazione+d%27interni+Buonsante+Modugno">Leggi le recensioni su Google</a></p>
     </div>
     <div>
-      <h2>Cosa dicono i clienti</h2>
-      <ul>
-        <li>Puntuali e precisi, rispettano i tempi concordati.</li>
-        <li>Attenti a mobili e parquet, casa lasciata pulita.</li>
-        <li>Preventivo fatto anche solo da un video.</li>
-        <li><span class="todo">Qui inseriamo le recensioni vere dalla scheda Google, in automatico.</span></li>
+      <h2>Cosa scrivono i clienti</h2>
+      <ul class="themes">
+        <li><b>Puntuali</b><span>Rispettano i giorni e i tempi concordati.</span></li>
+        <li><b>Attenti</b><span>Proteggono mobili e parquet, lasciano la casa pulita.</span></li>
+        <li><b>Pratici</b><span>Preventivo anche solo da un video su WhatsApp.</span></li>
+        <li><b>Esperti</b><span>Risolvono problemi di muffa e condensa.</span></li>
       </ul>
+      <p class="hint" style="margin-top:14px"><span class="todo">Nel sito finale le recensioni vere arrivano dalla scheda Google.</span></p>
     </div>
   </div>
 </section>
 
-<section id="zona">
-  <div class="wrap">
-    <h2>Dove lavoriamo</h2>
-    <p>Partiamo da Modugno e lavoriamo in tutta la provincia di Bari.</p>
-    <div class="zone"><span>Modugno</span><span>Bari</span><span>Bitonto</span><span>Palese</span><span>Bitetto</span><span>Altamura</span><span>Molfetta</span><span>e dintorni</span></div>
+<section id="preventivo">
+  <div class="wrap quote">
+    <div>
+      <h2>Prepara la richiesta in 30 secondi</h2>
+      <p class="intro">Scegli cosa ti serve: prepariamo noi il messaggio WhatsApp. Tu aggiungi solo un video o qualche foto delle stanze.</p>
+      <div class="preview" id="preview" aria-live="polite"></div>
+    </div>
+    <form id="q">
+      <fieldset>
+        <legend>Cosa ti serve?</legend>
+        <div class="opts">
+          <label><input type="radio" name="what" value="tinteggiare casa" checked><span>Tinteggiare casa</span></label>
+          <label><input type="radio" name="what" value="trattare muffa e condensa"><span>Muffa e condensa</span></label>
+          <label><input type="radio" name="what" value="tinteggiare un garage o un locale"><span>Garage o locale</span></label>
+          <label><input type="radio" name="what" value="altro lavoro"><span>Altro</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Quante stanze?</legend>
+        <div class="stepper"><button type="button" id="minus" aria-label="Meno">−</button><output id="rooms">3</output><button type="button" id="plus" aria-label="Più">+</button></div>
+      </fieldset>
+      <fieldset>
+        <legend><label for="where">In che comune?</label></legend>
+        <input type="text" id="where" placeholder="Es. Bari, Modugno, Bitonto" value="">
+      </fieldset>
+      <fieldset>
+        <legend>Quando?</legend>
+        <div class="opts">
+          <label><input type="radio" name="when" value="il prima possibile" checked><span>Prima possibile</span></label>
+          <label><input type="radio" name="when" value="entro un mese"><span>Entro un mese</span></label>
+          <label><input type="radio" name="when" value="sto solo valutando"><span>Sto valutando</span></label>
+        </div>
+      </fieldset>
+      <button class="btn" type="submit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.6 2.1 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4Z"/></svg>Apri WhatsApp con il messaggio</button>
+      <p class="hint">Nessun dato viene salvato: si apre solo WhatsApp sul tuo telefono.</p>
+    </form>
   </div>
 </section>
 
 <section id="contatti">
   <div class="wrap">
     <div class="contact">
-      <div>
-        <h2>Ti serve un preventivo?</h2>
-        <p style="margin-bottom:24px;color:#D8DCE5">Mandaci un video delle stanze su WhatsApp. Ti rispondiamo entro la giornata.</p>
-        <a class="btn" href="https://wa.me/393276804690?text=Ciao%20Vittorio%2C%20vorrei%20un%20preventivo%20per%20tinteggiare">Scrivici su WhatsApp</a>
+      <div class="info">
+        <h2>Dove siamo</h2>
+        <dl style="display:grid;gap:16px">
+          <div><dt>Telefono e WhatsApp</dt><dd><a href="tel:+393276804690">327 680 4690</a></dd></div>
+          <div><dt>Indirizzo</dt><dd>Via Palese 30, 70026 Modugno (BA)</dd></div>
+          <div><dt>Orari</dt><dd>Lunedì–sabato, 8:00–17:00</dd></div>
+        </dl>
+        <div><p style="font-size:14px;color:#B9C0CF;margin-bottom:8px">Lavoriamo in tutta la provincia di Bari</p>
+          <div class="zone"><span>Modugno</span><span>Bari</span><span>Bitonto</span><span>Palese</span><span>Bitetto</span><span>Altamura</span><span>Molfetta</span></div>
+        </div>
       </div>
-      <dl>
-        <div><dt>Telefono</dt><dd><a href="tel:+393276804690">327 680 4690</a></dd></div>
-        <div><dt>Indirizzo</dt><dd>Via Palese 30, 70026 Modugno (BA)</dd></div>
-        <div><dt>Orari</dt><dd>Lunedì–sabato, 8:00–17:00</dd></div>
-      </dl>
+      <iframe title="Mappa: Via Palese 30, Modugno" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Pitturazione+d%27interni+Buonsante,+Via+Palese+30,+Modugno&output=embed"></iframe>
     </div>
   </div>
 </section>
@@ -231,13 +401,50 @@ footer{padding:36px 0 48px;font-size:14px;color:var(--ink-soft);display:flex;jus
   </footer>
 </div>
 
+<a class="wa-float" href="https://wa.me/393276804690" aria-label="Scrivici su WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.6 2.1 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4Z"/></svg></a>
+
 <script>
-const wall=document.getElementById('wall');
+/* Room painter */
+const base=document.getElementById('wallBase'),sweep=document.getElementById('wallSweep'),roller=document.getElementById('roller');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let busy=false;
+function paint(c){
+  if(reduce){base.setAttribute('fill',c);return;}
+  busy=true;
+  sweep.setAttribute('fill',c);
+  sweep.style.transition='none';sweep.style.transform='scaleX(0)';
+  roller.style.transition='none';roller.style.transform='translateX(0)';roller.style.opacity='1';
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    sweep.style.transition='transform 1s cubic-bezier(.55,.1,.25,1)';sweep.style.transform='scaleX(1)';
+    roller.style.transition='transform 1s cubic-bezier(.55,.1,.25,1)';roller.style.transform='translateX(600px)';
+  }));
+  setTimeout(()=>{base.setAttribute('fill',c);sweep.style.transition='none';sweep.style.transform='scaleX(0)';roller.style.opacity='0';busy=false;},1050);
+}
 document.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{
-  wall.style.setProperty('--wall',b.dataset.c);
-  wall.style.backgroundColor=b.dataset.c;
+  if(busy||b.getAttribute('aria-pressed')==='true')return;
   document.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  document.getElementById('colorName').textContent=b.dataset.n;
+  paint(b.dataset.c);
 }));
+/* Before / after */
+const ba=document.getElementById('ba');
+ba.querySelector('input').addEventListener('input',e=>ba.style.setProperty('--x',e.target.value+'%'));
+/* Quote builder */
+const q=document.getElementById('q'),rooms=document.getElementById('rooms'),prev=document.getElementById('preview');
+let n=3;
+const msg=()=>{
+  const what=q.what.value,when=q.when.value,where=document.getElementById('where').value.trim();
+  const r=n>=6?'6 o più stanze':(n===1?'1 stanza':n+' stanze');
+  return `Ciao Vittorio, vorrei un preventivo per ${what}.\nStanze: ${r}.\nComune: ${where||'…'}.\nQuando: ${when}.\nTi mando un video delle stanze.`;
+};
+const upd=()=>{rooms.textContent=n>=6?'6+':n;prev.textContent=msg();};
+document.getElementById('minus').onclick=()=>{n=Math.max(1,n-1);upd();};
+document.getElementById('plus').onclick=()=>{n=Math.min(6,n+1);upd();};
+q.addEventListener('input',upd);q.addEventListener('change',upd);
+q.addEventListener('submit',e=>{e.preventDefault();window.open('https://wa.me/393276804690?text='+encodeURIComponent(msg()),'_blank','noopener');});
+upd();
+/* first paint on load */
+if(!reduce) setTimeout(()=>{base.setAttribute('fill','#F2EFE8');paint('#E9E4D8');},500);
 </script>
 </body>
 </html>
