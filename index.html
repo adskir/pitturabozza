@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pitturazione d'interni Buonsante · Imbianchino a Modugno e Bari</title>
+<meta name="description" content="Tinteggiatura di appartamenti, trattamento muffa e condensa a Modugno, Bari e provincia. Preventivo anche con un video su WhatsApp.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --plaster:#F5F6F3;
+  --ink:#1D2433;
+  --ink-soft:#4A5263;
+  --line:#D9DCD5;
+  --tape:#E6CF7E;
+  --wall:#E9E4D8;
+  --accent:#2F5D50;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Archivo",system-ui,sans-serif;font-variation-settings:"wdth" 100;color:var(--ink);background:var(--plaster);line-height:1.55;font-size:17px}
+a{color:inherit}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* Draft banner */
+.draft{background:var(--ink);color:#fff;font-size:14px;text-align:center;padding:9px 16px}
+.draft a{color:var(--tape)}
+
+/* Header */
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font-weight:800;font-variation-settings:"wdth" 75;font-size:20px;letter-spacing:.01em;text-decoration:none}
+.logo small{display:block;font-weight:500;font-size:13px;color:var(--ink-soft);font-variation-settings:"wdth" 100}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;padding:13px 22px;border-radius:999px;border:0;font:inherit;font-weight:700;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+
+/* Hero: the wall */
+.hero{position:relative;padding:28px 0 56px}
+.wall{position:relative;background:var(--wall);border-radius:6px;min-height:440px;padding:56px 44px 40px;overflow:hidden;transition:background-color .6s ease}
+.wall::before{content:"";position:absolute;inset:0;background:var(--plaster);transform-origin:left;animation:roll 1.4s cubic-bezier(.6,.1,.2,1) .2s forwards}
+@keyframes roll{to{transform:scaleX(0)}}
+.wall>*{position:relative}
+.tape{display:inline-block;background:var(--tape);padding:6px 14px;transform:rotate(-1.5deg);font-weight:600;font-size:15px;margin-bottom:22px;box-shadow:0 1px 0 rgba(0,0,0,.08)}
+h1{font-weight:800;font-variation-settings:"wdth" 70;font-size:clamp(46px,8.4vw,104px);line-height:.92;letter-spacing:-.01em;max-width:10ch}
+.lead{max-width:46ch;margin-top:22px;font-size:19px;color:var(--ink)}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.swatches{margin-top:40px}
+.swatches p{font-size:14px;color:var(--ink-soft);margin-bottom:10px}
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{border:0;cursor:pointer;width:118px;background:#fff;padding:6px 6px 10px;border-radius:4px;text-align:left;font:inherit;font-size:13px;box-shadow:0 1px 3px rgba(29,36,51,.12)}
+.chip span{display:block;height:46px;border-radius:2px;margin-bottom:7px}
+.chip[aria-pressed="true"]{outline:2px solid var(--ink);outline-offset:2px}
+.rating{position:absolute;right:36px;bottom:36px;background:#fff;border-radius:6px;padding:14px 18px;text-align:right;box-shadow:0 2px 10px rgba(29,36,51,.12)}
+.rating b{font-size:34px;font-variation-settings:"wdth" 70;line-height:1}
+.rating div{font-size:14px;color:var(--ink-soft)}
+
+/* Sections */
+section{padding:64px 0;border-top:1px solid var(--line)}
+h2{font-weight:800;font-variation-settings:"wdth" 75;font-size:clamp(30px,4.5vw,46px);line-height:1.02;margin-bottom:28px;max-width:20ch}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:36px 40px}
+.services h3{font-size:20px;margin-bottom:6px}
+.services p{color:var(--ink-soft)}
+.todo{background:#FFF3C4;padding:0 4px;border-radius:2px;font-size:.92em}
+
+.steps{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;counter-reset:s}
+.steps li{counter-increment:s;padding-top:14px;border-top:3px solid var(--ink)}
+.steps li::before{content:counter(s);font-weight:800;font-variation-settings:"wdth" 70;font-size:44px;line-height:1;display:block;margin-bottom:8px;color:var(--accent)}
+.steps strong{display:block;font-size:19px;margin-bottom:4px}
+.steps span{color:var(--ink-soft)}
+
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.ph{aspect-ratio:4/3;border-radius:4px;display:flex;align-items:flex-end;padding:12px;font-size:14px;color:var(--ink);background:repeating-linear-gradient(135deg,#ECEDE8 0 14px,#E3E5DE 14px 28px)}
+.ph b{background:#fff;padding:3px 8px;border-radius:3px;font-weight:600}
+
+.reviews{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:40px;align-items:start}
+.big{font-weight:800;font-variation-settings:"wdth" 65;font-size:clamp(80px,14vw,150px);line-height:.85;margin-bottom:18px}
+.reviews ul{list-style:none;display:grid;gap:12px}
+.reviews li{padding:14px 0;border-bottom:1px solid var(--line)}
+
+.zone{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.zone span{border:1px solid var(--ink);border-radius:999px;padding:5px 13px;font-size:15px}
+
+.contact{background:var(--ink);color:#fff;border-radius:6px;padding:48px 40px;display:grid;grid-template-columns:1.2fr 1fr;gap:36px}
+.contact h2{color:#fff}
+.contact dl{display:grid;gap:14px}
+.contact dt{font-size:14px;color:#B9C0CF}
+.contact dd{font-size:18px}
+.contact .btn{background:var(--tape);color:var(--ink)}
+footer{padding:36px 0 48px;font-size:14px;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+@media (max-width:760px){
+  .wall{padding:40px 22px 30px;min-height:0}
+  .rating{position:static;display:inline-block;margin-top:28px;text-align:left}
+  .reviews,.contact{grid-template-columns:1fr}
+  .contact{padding:36px 22px}
+  .chip{width:calc(50% - 5px)}
+  .gallery{grid-template-columns:1fr 1fr}
+  header .btn{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .wall::before{animation:none;transform:scaleX(0)}
+  .wall{transition:none}
+}
+</style>
+</head>
+<body>
+
+<div class="draft">Bozza realizzata da <a href="https://clickbari.it">ClickBari</a>. Testi e foto da confermare.</div>
+
+<div class="wrap">
+  <header>
+    <a class="logo" href="#">Pitturazione d'interni Buonsante<small>Vittorio e Cristian · Modugno</small></a>
+    <a class="btn" href="https://wa.me/393276804690">Scrivici su WhatsApp</a>
+  </header>
+
+  <div class="hero">
+    <div class="wall" id="wall">
+      <div class="tape">Imbianchini a Modugno, Bari e provincia</div>
+      <h1>Pareti nuove, casa pulita.</h1>
+      <p class="lead">Tinteggiamo appartamenti, garage e locali. Proteggiamo mobili e pavimenti e lasciamo la casa in ordine. Per il preventivo basta un video delle stanze su WhatsApp.</p>
+      <div class="hero-cta">
+        <a class="btn" href="https://wa.me/393276804690?text=Ciao%20Vittorio%2C%20vorrei%20un%20preventivo%20per%20tinteggiare">Chiedi un preventivo</a>
+        <a class="btn ghost" href="tel:+393276804690">Chiama 327 680 4690</a>
+      </div>
+      <div class="swatches">
+        <p>Prova un colore su questa parete</p>
+        <div class="chips" role="group" aria-label="Colori di prova">
+          <button class="chip" data-c="#E9E4D8" aria-pressed="true"><span style="background:#E9E4D8"></span>Bianco caldo</button>
+          <button class="chip" data-c="#D7DED6" aria-pressed="false"><span style="background:#D7DED6"></span>Salvia chiaro</button>
+          <button class="chip" data-c="#D9DEE6" aria-pressed="false"><span style="background:#D9DEE6"></span>Grigio cielo</button>
+          <button class="chip" data-c="#E8D6C6" aria-pressed="false"><span style="background:#E8D6C6"></span>Rosa sabbia</button>
+          <button class="chip" data-c="#C9D3CB" aria-pressed="false"><span style="background:#C9D3CB"></span>Verde ulivo</button>
+        </div>
+      </div>
+      <div class="rating" aria-label="Valutazione Google 5 su 5, 58 recensioni">
+        <b>5,0</b>
+        <div>58 recensioni su Google</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="servizi">
+  <div class="wrap">
+    <h2>Cosa facciamo</h2>
+    <div class="services">
+      <div><h3>Tinteggiatura di appartamenti</h3><p>Stanze, corridoi, soffitti. Copriamo mobili e pavimenti, anche il parquet, e puliamo tutto prima di andare via.</p></div>
+      <div><h3>Muffa e condensa</h3><p>Troviamo la causa, trattiamo le pareti e usiamo pitture antimuffa, senza rovinare le pareti che restano.</p></div>
+      <div><h3>Garage, scale e locali</h3><p>Garage, androni e negozi, con lavori programmati per non fermare la vostra attività.</p></div>
+      <div><h3>Altri servizi <span class="todo">da confermare</span></h3><p>Cartongesso, carta da parati, stucco veneziano, pittura decorativa. Aggiungiamo solo quello che fate davvero.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="come">
+  <div class="wrap">
+    <h2>Come lavoriamo</h2>
+    <ol class="steps">
+      <li><strong>Ci mandi un video</strong><span>Riprendi le stanze con il telefono e mandalo su WhatsApp. Se serve, veniamo a vedere.</span></li>
+      <li><strong>Ricevi il preventivo</strong><span>Chiaro, con materiali e tempi. Nessuna sorpresa a fine lavoro.</span></li>
+      <li><strong>Lavoriamo noi due</strong><span>Vittorio e Cristian, sempre gli stessi, puntuali nei giorni concordati.</span></li>
+      <li><strong>Casa pulita</strong><span>Togliamo le protezioni, puliamo e ti riconsegniamo la casa pronta.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section id="lavori">
+  <div class="wrap">
+    <h2>Alcuni lavori</h2>
+    <div class="gallery">
+      <div class="ph"><b>Foto prima / dopo</b></div>
+      <div class="ph"><b>Soggiorno</b></div>
+      <div class="ph"><b>Trattamento muffa</b></div>
+      <div class="ph"><b>Garage</b></div>
+    </div>
+  </div>
+</section>
+
+<section id="recensioni">
+  <div class="wrap reviews">
+    <div>
+      <div class="big">5,0</div>
+      <p>58 recensioni su Google</p>
+      <p style="margin-top:16px"><a href="https://www.google.com/maps/search/?api=1&query=Pitturazione+d%27interni+Buonsante+Modugno">Leggi le recensioni su Google</a></p>
+    </div>
+    <div>
+      <h2>Cosa dicono i clienti</h2>
+      <ul>
+        <li>Puntuali e precisi, rispettano i tempi concordati.</li>
+        <li>Attenti a mobili e parquet, casa lasciata pulita.</li>
+        <li>Preventivo fatto anche solo da un video.</li>
+        <li><span class="todo">Qui inseriamo le recensioni vere dalla scheda Google, in automatico.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="zona">
+  <div class="wrap">
+    <h2>Dove lavoriamo</h2>
+    <p>Partiamo da Modugno e lavoriamo in tutta la provincia di Bari.</p>
+    <div class="zone"><span>Modugno</span><span>Bari</span><span>Bitonto</span><span>Palese</span><span>Bitetto</span><span>Altamura</span><span>Molfetta</span><span>e dintorni</span></div>
+  </div>
+</section>
+
+<section id="contatti">
+  <div class="wrap">
+    <div class="contact">
+      <div>
+        <h2>Ti serve un preventivo?</h2>
+        <p style="margin-bottom:24px;color:#D8DCE5">Mandaci un video delle stanze su WhatsApp. Ti rispondiamo entro la giornata.</p>
+        <a class="btn" href="https://wa.me/393276804690?text=Ciao%20Vittorio%2C%20vorrei%20un%20preventivo%20per%20tinteggiare">Scrivici su WhatsApp</a>
+      </div>
+      <dl>
+        <div><dt>Telefono</dt><dd><a href="tel:+393276804690">327 680 4690</a></dd></div>
+        <div><dt>Indirizzo</dt><dd>Via Palese 30, 70026 Modugno (BA)</dd></div>
+        <div><dt>Orari</dt><dd>Lunedì–sabato, 8:00–17:00</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <span>© 2026 Pitturazione d'interni Buonsante · P.IVA <span class="todo">da inserire</span></span>
+    <span>Sito realizzato da <a href="https://clickbari.it" rel="nofollow">ClickBari</a></span>
+  </footer>
+</div>
+
+<script>
+const wall=document.getElementById('wall');
+document.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{
+  wall.style.setProperty('--wall',b.dataset.c);
+  wall.style.backgroundColor=b.dataset.c;
+  document.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===b));
+}));
+</script>
+</body>
+</html>
